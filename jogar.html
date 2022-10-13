@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="main" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+
+        <iframe class="opengame" src="" frameborder="0" width="960" height="700"></iframe>
+    
+    </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script>
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+                    var sPageURL = window.location.search.substring(1),
+                        sURLVariables = sPageURL.split('&'),
+                        sParameterName,
+                        i;
+
+                    for (i = 0; i < sURLVariables.length; i++) {
+                        sParameterName = sURLVariables[i].split('=');
+
+                        if (sParameterName[0] === sParam) {
+                            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                        }
+                    }
+                    return false;
+                };
+
+
+
+        $(function(){
+
+            var game = getUrlParameter('game');
+
+            console.log(game)
+
+            $(".opengame").prop("src", game)
+
+        })
+
+    </script>
+    
+</body>
+</html>
